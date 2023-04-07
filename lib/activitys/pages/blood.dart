@@ -1,17 +1,19 @@
 
-import 'package:diabetes_self_care_new/activitys/pages/diet/database_diet.dart';
-import 'package:diabetes_self_care_new/activitys/pages/diet/diet_select.dart';
+
+import 'package:diabetes_self_care_new/activitys/pages/blood/database_blood.dart';
 import 'package:flutter/material.dart';
 
+import 'blood/blood_select.dart';
 
-class Diet extends StatefulWidget {
-  const Diet({Key? key}) : super(key: key);
+
+class Blood extends StatefulWidget {
+  const Blood({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<Diet> {
+class _HomePageState extends State<Blood> {
 
   //alarm
 
@@ -27,7 +29,7 @@ class _HomePageState extends State<Diet> {
   bool _isLoading = true;
   // This function is used to fetch all data from the database
   void _refreshJournals() async {
-    final data = await SQLHelper_deit.getItems();
+    final data = await SQLHelper_blood.getItems();
     setState(() {
       _journals = data;
       _isLoading = false;
@@ -120,21 +122,21 @@ class _HomePageState extends State<Diet> {
 
 // Insert a new journal to the database
   Future<void> _addItem() async {
-    await SQLHelper_deit.createItem(
+    await SQLHelper_blood.createItem(
         _titleController.text, _descriptionController.text);
     _refreshJournals();
   }
 
   // Update an existing journal
   Future<void> _updateItem(int id) async {
-    await SQLHelper_deit.updateItem(
+    await SQLHelper_blood.updateItem(
         id, _titleController.text, _descriptionController.text);
     _refreshJournals();
   }
 
   // Delete an item
   void _deleteItem(int id) async {
-    await SQLHelper_deit.deleteItem(id);
+    await SQLHelper_blood.deleteItem(id);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       content: Text('Successfully deleted a journal!'),
     ));
@@ -145,7 +147,7 @@ class _HomePageState extends State<Diet> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Diet', style: TextStyle(color: Colors.white),),
+        title: const Text('Blood Glucose Testing', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.green,
       ),
       body: _isLoading
@@ -184,7 +186,7 @@ class _HomePageState extends State<Diet> {
           // Add your onPressed code here!
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  Diet_select()),
+            MaterialPageRoute(builder: (context) =>  Blood_select()),
           );
         },
         label: const Text('ADD'),

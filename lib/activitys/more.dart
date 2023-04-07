@@ -1,3 +1,7 @@
+import 'package:diabetes_self_care_new/activitys/pages/avoid_using_tobaco.dart';
+import 'package:diabetes_self_care_new/activitys/pages/blood.dart';
+import 'package:diabetes_self_care_new/activitys/pages/follow.dart';
+import 'package:diabetes_self_care_new/activitys/pages/footcare.dart';
 import 'package:flutter/material.dart';
 
 class More extends StatefulWidget {
@@ -32,19 +36,27 @@ class _MoreState extends State<More> {
 
                   ),
 
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.follow_the_signs
-                        ),
-                        Text("FOLLOW_UP"),
-                        Text("VISIT"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Follow()),
+                      );
+                    },
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.follow_the_signs
+                          ),
+                          Text("FOLLOW_UP"),
+                          Text("VISIT"),
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
@@ -58,20 +70,28 @@ class _MoreState extends State<More> {
                         Radius.circular(20)
                     ),
                   ),
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.bloodtype
-                        ),
-                        Text("BLOOD"),
-                        Text("GLUCOSE"),
-                        Text("TESTING"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Blood()),
+                      );
+                    },
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.bloodtype
+                          ),
+                          Text("BLOOD"),
+                          Text("GLUCOSE"),
+                          Text("TESTING"),
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
@@ -84,19 +104,27 @@ class _MoreState extends State<More> {
                         Radius.circular(20)
                     ),
                   ),
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.no_drinks_rounded
-                        ),
-                        Text("AVOID_USING"),
-                        Text("TOBACCO"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Tob()),
+                      );
+                    },
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.no_drinks_rounded
+                          ),
+                          Text("AVOID_USING"),
+                          Text("TOBACCO"),
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
@@ -109,19 +137,24 @@ class _MoreState extends State<More> {
                         Radius.circular(20)
                     ),
                   ),
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.accessibility
-                        ),
-                        Text("FOOT CARE"),
-                        //    Text("VISIT"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Foot()));
+                    },
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.accessibility
+                          ),
+                          Text("FOOT CARE"),
+                          //    Text("VISIT"),
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
