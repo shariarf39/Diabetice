@@ -14,8 +14,7 @@ import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 
 const List<Widget> fruits = <Widget>[
   Text('Once a Day'),
-  Text('2 Times a Day'),
-  Text('3 Times a Day')
+
 ];
 const List<Widget> alerttype = <Widget>[
   Text('Notification'),
@@ -83,7 +82,7 @@ class _Medi_selectState extends State<F_select> {
   //final selectTime = "Select Time (Click here)";
 
   static const String _title = 'ToggleButtons Sample';
-  final List<bool> _selectedFruits = <bool>[true, false, false];
+  final List<bool> _selectedFruits = <bool>[true];
   final List<bool> _alerttype = <bool>[false, true];
   final List<bool> _selectedWeather = <bool>[false, false, true];
   bool vertical = false;
@@ -119,6 +118,8 @@ class _Medi_selectState extends State<F_select> {
   }
 
   final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _titleController1 = TextEditingController();
+  final TextEditingController _titleController2 = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
   // This function will be triggered when the floating button is pressed
@@ -130,6 +131,8 @@ class _Medi_selectState extends State<F_select> {
       final existingJournal =
       _journals.firstWhere((element) => element['id'] == id);
       _titleController.text = existingJournal['title'];
+      _titleController1.text = existingJournal['ht'];
+      _titleController2.text = existingJournal['lt'];
       _descriptionController.text = existingJournal['description'];
     }
 
@@ -144,6 +147,8 @@ class _Medi_selectState extends State<F_select> {
 
       // Clear the text fields
       _titleController.text = '';
+      _titleController1.text = '';
+      _titleController2.text = '';
       _descriptionController.text = '';
 
       // Close the bottom sheet
@@ -159,7 +164,7 @@ class _Medi_selectState extends State<F_select> {
 // Insert a new journal to the database
   Future<void> _addItem() async {
     await SQLHelper_f.createItem(
-        _titleController.text, _timeOfDay.toString()
+        _titleController.text+'\n'+_titleController1.text+'\n'+_titleController2.text, _timeOfDay.toString()
 
     );
     _refreshJournals();
@@ -187,7 +192,7 @@ class _Medi_selectState extends State<F_select> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Add Medicine"),
+        appBar: AppBar(title: const Text("Add Follow-up"),
           actions: <Widget>[
             IconButton(
               icon: const Icon(
@@ -213,12 +218,47 @@ class _Medi_selectState extends State<F_select> {
                 TextFormField(
                   controller: _titleController,
                   decoration: const InputDecoration(
-                      labelText: "Drug Name",
-                      hintText: "Drug Name",
+                      labelText: "Doctor Name",
+                      hintText: "Doctor Name",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20)
+                          )
+
+                      )
+                  ),
+                ),SizedBox(height: 5,),
+                TextFormField(
+                  controller: _titleController1,
+                  decoration: const InputDecoration(
+                      labelText: "Hospital Name",
+                      hintText: "Hospital Name",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20)
+                          )
+
+                      )
+                  ),
+                ),
+                SizedBox(height: 5,),
+                TextFormField(
+                  controller: _titleController2,
+                  decoration: const InputDecoration(
+                      labelText: "Location",
+                      hintText: "Location",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20)
                           )
 
                       )
@@ -299,7 +339,7 @@ class _Medi_selectState extends State<F_select> {
                         child: Text( _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()))),
 
                 const SizedBox(height: 20,),
-
+/*
                 Container(
                   child :
                   Column(children: <Widget>[
@@ -333,6 +373,8 @@ class _Medi_selectState extends State<F_select> {
                             color: Colors.black)),
                   ]),
                 ),
+
+ */
                 const SizedBox(height: 20,),
                 const Text("Alert Type", style: TextStyle(color: Colors.green),),
 
@@ -391,6 +433,8 @@ class _Medi_selectState extends State<F_select> {
 
                       // Clear the text fields
                       _titleController.text = '';
+                      _titleController1.text = '';
+                      _titleController2.text = '';
                       _descriptionController.text = '';
 
 

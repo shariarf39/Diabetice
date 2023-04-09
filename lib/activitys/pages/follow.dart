@@ -50,6 +50,7 @@ class _HomePageState extends State<Follow> {
 
 //
   final TextEditingController _titleController = TextEditingController();
+
   final TextEditingController _descriptionController = TextEditingController();
 
   // This function will be triggered when the floating button is pressed
@@ -61,6 +62,7 @@ class _HomePageState extends State<Follow> {
       final existingJournal =
       _journals.firstWhere((element) => element['id'] == id);
       _titleController.text = existingJournal['title'];
+
       _descriptionController.text = existingJournal['description'];
     }
 
@@ -107,6 +109,7 @@ class _HomePageState extends State<Follow> {
 
                   // Clear the text fields
                   _titleController.text = '';
+
                   _descriptionController.text = '';
 
                   // Close the bottom sheet
@@ -158,27 +161,34 @@ class _HomePageState extends State<Follow> {
         itemBuilder: (context, index) => Card(
           color: Colors.orange[200],
           margin: const EdgeInsets.all(15),
-          child: ListTile(
-              title: Text(_journals[index]['title']),
-              subtitle: Text(_journals[index]['description']),
-              trailing: SizedBox(
-                width: 100,
-                child: Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () => _showForm(_journals[index]['id']),
+          child: Column(
+            children: [
+              ListTile(
+                  title: Text(_journals[index]['title']),
+                  subtitle: Text(_journals[index]['description']),
+                  trailing: SizedBox(
+                    width: 100,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () => _showForm(_journals[index]['id']),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () =>
+                              _deleteItem(_journals[index]['id']),
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () =>
-                          _deleteItem(_journals[index]['id']),
-                    ),
-                  ],
-                ),
-              )),
+                  )),
+
+
+            ],
+          ),
         ),
       ),
+
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {

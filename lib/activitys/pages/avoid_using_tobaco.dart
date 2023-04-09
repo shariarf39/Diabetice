@@ -145,7 +145,7 @@ class _HomePageState extends State<Tob> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Avoid Using Tobaco', style: TextStyle(color: Colors.white),),
+        title: const Text('Avoiding Tobaco', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.green,
       ),
       body: _isLoading

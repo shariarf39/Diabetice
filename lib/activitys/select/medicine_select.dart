@@ -11,11 +11,12 @@ import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import '../pages/sql_helper.dart';
 
 
-
 const List<Widget> fruits = <Widget>[
   Text('Once a Day'),
   Text('2 Times a Day'),
-  Text('3 Times a Day')
+  Text('3 Times a Day'),
+  Text('4 Times a Day'),
+  Text('5 Times a Day'),
 ];
 const List<Widget> alerttype = <Widget>[
   Text('Notification'),
@@ -83,7 +84,7 @@ class _Medi_selectState extends State<Medi_select> {
   //final selectTime = "Select Time (Click here)";
 
   static const String _title = 'ToggleButtons Sample';
-  final List<bool> _selectedFruits = <bool>[true, false, false];
+  final List<bool> _selectedFruits = <bool>[true, false, false,false,false];
   final List<bool> _alerttype = <bool>[false, true];
   final List<bool> _selectedWeather = <bool>[false, false, true];
   bool vertical = false;
@@ -100,14 +101,41 @@ class _Medi_selectState extends State<Medi_select> {
 
 
   TimeOfDay _timeOfDay = TimeOfDay.now();
+  TimeOfDay _timeOfDay1 = TimeOfDay.now();
+  TimeOfDay _timeOfDay2 = TimeOfDay.now();
+  TimeOfDay _timeOfDay3 = TimeOfDay.now();
+  TimeOfDay _timeOfDay4 = TimeOfDay.now();
   TimeOfDay _timeOfDays = TimeOfDay.now();
   var time = DateTime.now();
 
  //
   bool selectshow = true;
-  bool hide = false;
+  bool selecttime1 = true;
+  bool selecttime2 = true;
+  bool selecttime3 = true;
+  bool selecttime4 = true;
 
-String select = "Select Time (Click here)";
+  bool selectshow1 = false;
+  bool selectshow2 = false;
+  bool selectshow3 = false;
+  bool selectshow4 = false;
+  bool hide = false;
+  bool set_label= false;
+
+  bool b= false;
+  bool b1= false;
+  bool b2= false;
+  bool b3= false;
+  bool b4= false;
+
+String select =  "Select Time (Click here)";
+String select1 = "Select Time (Click here)";
+String select2 = "Select Time (Click here)";
+String select3 = "Select Time (Click here)";
+String select4 = "Select Time (Click here)";
+
+
+
 
 
 
@@ -151,6 +179,10 @@ String select = "Select Time (Click here)";
     }
 
     child: Text(id == null ? 'Create New' : 'Update');
+    }
+
+    void al1(){
+      FlutterAlarmClock.createAlarm(10,57,title: _titleController.text,);
     }
 
 
@@ -241,7 +273,8 @@ String select = "Select Time (Click here)";
                 const Text("Quantity", style: TextStyle(color: Colors.green),),
 
                 const SizedBox(height: 5),
-                Scrollbar(
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: ToggleButtons(
 
                     direction: vertical ? Axis.vertical : Axis.horizontal,
@@ -251,9 +284,105 @@ String select = "Select Time (Click here)";
                         // The button that is tapped is set to true, and the others to false.
                         for (int i = 0; i < _selectedFruits.length; i++) {
                           _selectedFruits[i] = i == index;
+
+
                         }
+
+                        if(_selectedFruits[0]== true){
+                          selectshow1=false;
+                          selectshow2=false;
+                          selectshow4=false;
+                          selectshow3=false;
+                          ///
+                          b = false;
+                          b1 = false;
+                          b2 = false;
+                          b3 = false;
+                          b4 = false;
+                          //
+                          select =  "Select Time (Click here)";
+                          select1 = "Select Time (Click here)";
+                          select2 = "Select Time (Click here)";
+                          select3 = "Select Time (Click here)";
+                          select4 = "Select Time (Click here)";
+                        }
+                        if(_selectedFruits[1]== true){
+                          selectshow1= true;
+                          selectshow2=false;
+                          selectshow3=false;
+                          selectshow4=false;
+                          ///
+                          b = false;
+                          b1 = false;
+                          b2 = false;
+                          b3 = false;
+                          b4 = false;
+                          //
+                          select =  "Select Time (Click here)";
+                          select1 = "Select Time (Click here)";
+                          select2 = "Select Time (Click here)";
+                          select3 = "Select Time (Click here)";
+                          select4 = "Select Time (Click here)";
+                        }
+                      else  if(_selectedFruits[2]== true){
+                          selectshow1=true;
+                          selectshow2=true;
+                          selectshow3=false;
+                          selectshow4=false;
+                          //
+                          b = false;
+                          b1 = false;
+                          b2 = false;
+                          b3 = false;
+                          b4 = false;
+                          //
+                          select =  "Select Time (Click here)";
+                          select1 = "Select Time (Click here)";
+                          select2 = "Select Time (Click here)";
+                          select3 = "Select Time (Click here)";
+                          select4 = "Select Time (Click here)";
+                        }
+                      else  if(_selectedFruits[3]== true){
+                          selectshow1=true;
+                          selectshow2=true;
+                          selectshow3=true;
+                          selectshow4=false;
+                          //
+                          b = false;
+                          b1 = false;
+                          b2 = false;
+                          b3 = false;
+                          b4 = false;
+                          //
+                          select =  "Select Time (Click here)";
+                          select1 = "Select Time (Click here)";
+                          select2 = "Select Time (Click here)";
+                          select3 = "Select Time (Click here)";
+                          select4 = "Select Time (Click here)";
+
+                        }
+                      else  if(_selectedFruits[4]== true){
+                          selectshow1=true;
+                          selectshow2=true;
+                          selectshow3=true;
+                          selectshow4=true;
+                          //
+                          b = false;
+                          b1 = false;
+                          b2 = false;
+                          b3 = false;
+                          b4 = false;
+                          //
+                          select =  "Select Time (Click here)";
+                          select1 = "Select Time (Click here)";
+                          select2 = "Select Time (Click here)";
+                          select3 = "Select Time (Click here)";
+                          select4 = "Select Time (Click here)";
+                        }
+
                       });
                     },
+
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     selectedBorderColor: Colors.green,
                     selectedColor: Colors.white,
@@ -268,35 +397,211 @@ String select = "Select Time (Click here)";
                     children: fruits,
                   ),
                 ),
+              //  Text("$_selectedFruits"),
                   
                 ///////////
                 const SizedBox(height: 20,),
                 const Text("Set Time*"),
                 const SizedBox(height: 30,),
 
-
+//----------
                 InkWell(
                   onTap: (){
 
                     if(selectshow == true){
-                      select = "";
                       selectTime();
+                      select ="";
+
 
                       hide = true;
                     }
                   },
 
-                    child:  Text("$select"
+                    child:  Text("$select - " + _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()
                       , style: TextStyle(fontSize: 15),)),
+                SizedBox(height: 10,),
+                //22222222222222
+                Visibility(
+                  visible: selectshow1,
+                  child: InkWell(
+                    onTap: (){
+
+                      if(selecttime1 == true){
+                        select1 = "";
+                        selectTime1();
+                        b1 = true;
+
+                        hide = true;
+                      }
+                    },
+
+                      child:  Column(
+                        children: [
+                          Text("$select1 - " + _timeOfDay1.hour.toString() + ":" + _timeOfDay1.minute.toString()
+                            , style: TextStyle(fontSize: 15),),
+                          Visibility(
+                            visible: b1,
+                              child: ElevatedButton(
+                                onPressed: (){
+
+                                  FlutterAlarmClock.createAlarm(
+                                    _timeOfDay1.hour, _timeOfDay1.minute,
+                                    title: _titleController.text,);
+
+                                },
+                                child: Text('Set'),
+                              )),
+                        ],
+                      )),
+                ),
+                SizedBox(height: 10,),
+                //33333333333333
+                Visibility(
+                  visible: selectshow2,
+                  child: InkWell(
+                    onTap: (){
+
+                   setState(() {
+                     if(selecttime2== true){
+                       select2 = "";
+                       selectTime2();
+                       b2 = true;
+
+                       hide = true;
+                     }
+                   });
+                    },
+
+                      child:  Column(
+                        children: [
+                          Center(
+                            child: Text("$select2 - "+ _timeOfDay2.hour.toString() + ":" + _timeOfDay2.minute.toString()
+                              , style: TextStyle(fontSize: 15),),
+                          ),
+                          Visibility(
+                            visible: b2,
+                              child: ElevatedButton(onPressed: () async{
+                                FlutterAlarmClock.createAlarm(
+                                  _timeOfDay2.hour, _timeOfDay2.minute,
+                                  title: _titleController.text,);
+                              }, child: Text('Set'))),
+                        ],
+                      )),
+                ),
+                SizedBox(height: 10,),
+                //44444444444444
+                Visibility(
+                  visible: selectshow3,
+                  child: InkWell(
+                    onTap: (){
+
+                      if(selecttime3== true){
+                        select3 = "";
+                        selectTime3();
+                        b3 = true;
+
+                        hide = true;
+                      }
+                    },
+
+                      child:  Column(
+                        children: [
+                          Text("$select3 - "+ _timeOfDay3.hour.toString() + ":" + _timeOfDay3.minute.toString()
+                            , style: TextStyle(fontSize: 15),),
+                          Visibility(
+                              visible: b3,
+                              child: ElevatedButton(
+                                onPressed: (){
+
+                                  FlutterAlarmClock.createAlarm(
+                                    _timeOfDay3.hour, _timeOfDay3.minute,
+                                    title: _titleController.text,);
+
+                                },
+                                child: Text('Set'),
+                              )),
+                        ],
+                      )),
+                ),
+                ///55555555555555
+                  SizedBox(height: 10,),
+                Visibility(
+                  visible: selectshow4,
+                  child: InkWell(
+                    onTap: (){
 
 
+                      if(selecttime4== true){
+                        select4 = "";
+                        selectTime4();
+                        b4 = true;
+
+                        hide = true;
+                      }
+                    },
+
+                      child:  Column(
+                        children: [
+                          Text("$select4 - "+ _timeOfDay4.hour.toString() + ":" + _timeOfDay4.minute.toString()
+                            , style: TextStyle(fontSize: 15),),
+                          Visibility(
+                              visible: b4,
+                              child: ElevatedButton(
+                                onPressed: (){
+
+                                  FlutterAlarmClock.createAlarm(
+                                    _timeOfDay4.hour, _timeOfDay4.minute,
+                                    title: _titleController.text,);
+
+                                },
+                                child: Text('Set'),
+                              )),
+                        ],
+                      )),
+                ),
+
+
+
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    //  right: 40
+                  ),
+                  child: Visibility(
+                    visible: set_label,
+                    child: Container(
+                      alignment: Alignment.topRight,
+                      height: 50,
+                      width: 120,
+
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          border: Border.all(),
+                          borderRadius:  BorderRadius.circular(20)
+                      ),
+
+                      child: Center(
+                        child: TextButton(
+                          onPressed: (){
+
+                            FlutterAlarmClock.showAlarms();
+
+                          },
+                          child: Text('Label Set',style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+/*
                 Visibility(
                     visible: hide,
                     child: InkWell(
                         onTap: (){
                           selectTime();
                         },
-                        child: Text( _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()))),
+                        child: Text( _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()))),*/
 
                 const SizedBox(height: 20,),
 
@@ -370,41 +675,66 @@ String select = "Select Time (Click here)";
                   decoration: BoxDecoration(
                     color: Colors.green,
                     border: Border.all(),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    )
+                    borderRadius:  BorderRadius.circular(20)
                   ),
 
-                  child: TextButton(
-                    onPressed: () async {
-
-                     FlutterAlarmClock.createAlarm(_timeOfDay.hour,_timeOfDay.minute);
-                     // Save new journal
-                    //  if (id == null) {
-                        await _addItem();
-                    //  }
-
-                  //    if (id != null) {
-                      //  await _updateItem(id);
-                   //   }
-
-                      // Clear the text fields
-                      _titleController.text = '';
-                      _descriptionController.text = '';
+                  child: Column(
+                    children: [
+                      TextButton(
+                        onPressed: () async {
 
 
 
 
-                      // Close the bottom sheet
-                      Navigator.of(context).pop();
+
+                            FlutterAlarmClock.createAlarm(
+                              _timeOfDay.hour, _timeOfDay.minute,
+                              title: _titleController.text,);
 
 
 
-                    },
-                    child: const Text("Save",style: TextStyle(color: Colors.white),),
+
+
+
+
+                      //   if(_selectedFruits[1]==true){
+
+
+
+                      //   }
+
+
+                         // Save new journal
+                        //  if (id == null) {
+                            await _addItem();
+                        //  }
+
+                      //    if (id != null) {
+                          //  await _updateItem(id);
+                       //   }
+
+                          // Clear the text fields
+                          _titleController.text = '';
+                          _descriptionController.text = '';
+
+
+
+
+                          // Close the bottom sheet
+                          Navigator.of(context).pop();
+
+
+
+
+
+                        },
+                        child: const Text("Save",style: TextStyle(color: Colors.white),),
+                      ),
+                    ],
                   ),
+
                 ),
+
               ],
             ),
           ),
@@ -422,4 +752,44 @@ String select = "Select Time (Click here)";
      });
    }
   }
+  Future<void> selectTime1() async{
+   TimeOfDay ? _picker= await showTimePicker(context: context,
+        initialTime: _timeOfDay1);
+   if(_picker != null){
+     setState(() {
+       _timeOfDay1= _picker;
+     });
+   }
+  }
+  Future<void> selectTime2() async{
+   TimeOfDay ? _picker= await showTimePicker(context: context,
+        initialTime: _timeOfDay2);
+   if(_picker != null){
+     setState(() {
+       _timeOfDay2= _picker;
+     });
+   }
+  }
+  Future<void> selectTime3() async{
+   TimeOfDay ? _picker= await showTimePicker(context: context,
+        initialTime: _timeOfDay3);
+   if(_picker != null){
+     setState(() {
+       _timeOfDay3= _picker;
+     });
+   }
+  }
+  Future<void> selectTime4() async{
+   TimeOfDay ? _picker= await showTimePicker(context: context,
+        initialTime: _timeOfDay4);
+   if(_picker != null){
+     setState(() {
+       _timeOfDay4= _picker;
+     });
+   }
+  }
+
+  // Retrieve the alarm label
+
+
 }

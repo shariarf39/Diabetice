@@ -146,7 +146,7 @@ class _HomePageState extends State<Activity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Activity', style: TextStyle(color: Colors.white),),
+        title: const Text('Physical Activity', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.green,
       ),
       body: _isLoading

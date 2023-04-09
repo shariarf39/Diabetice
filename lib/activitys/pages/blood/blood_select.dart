@@ -15,8 +15,7 @@ import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 
 const List<Widget> fruits = <Widget>[
   Text('Once a Day'),
-  Text('2 Times a Day'),
-  Text('3 Times a Day')
+
 ];
 const List<Widget> alerttype = <Widget>[
   Text('Notification'),
@@ -84,7 +83,7 @@ class _Medi_selectState extends State<Blood_select> {
   //final selectTime = "Select Time (Click here)";
 
   static const String _title = 'ToggleButtons Sample';
-  final List<bool> _selectedFruits = <bool>[true, false, false];
+  final List<bool> _selectedFruits = <bool>[true];
   final List<bool> _alerttype = <bool>[false, true];
   final List<bool> _selectedWeather = <bool>[false, false, true];
   bool vertical = false;
@@ -188,7 +187,7 @@ class _Medi_selectState extends State<Blood_select> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Add Medicine"),
+        appBar: AppBar(title: const Text("Add Blood Glucose Test"),
           actions: <Widget>[
             IconButton(
               icon: const Icon(
@@ -214,8 +213,8 @@ class _Medi_selectState extends State<Blood_select> {
                 TextFormField(
                   controller: _titleController,
                   decoration: const InputDecoration(
-                      labelText: "Drug Name",
-                      hintText: "Drug Name",
+                      labelText: "Center Name",
+                      hintText: "Center Name",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
@@ -301,39 +300,7 @@ class _Medi_selectState extends State<Blood_select> {
 
                 const SizedBox(height: 20,),
 
-                Container(
-                  child :
-                  Column(children: <Widget>[
 
-                    DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.red, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                        color: Colors.deepPurpleAccent,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue = data!;
-                        });
-                      },
-                      items: spinnerItems.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-
-                    Text('Selected Item = ' + '$dropdownValue',
-                        style: const TextStyle
-                          (fontSize: 14,
-                            color: Colors.black)),
-                  ]),
-                ),
                 const SizedBox(height: 20,),
                 const Text("Alert Type", style: TextStyle(color: Colors.green),),
 
@@ -380,7 +347,7 @@ class _Medi_selectState extends State<Blood_select> {
                   child: TextButton(
                     onPressed: () async {
 
-                      FlutterAlarmClock.createAlarm(_timeOfDay.hour,_timeOfDay.minute);
+                      FlutterAlarmClock.createAlarm(_timeOfDay.hour,_timeOfDay.minute, title:_titleController.text);
                       // Save new journal
                       //  if (id == null) {
                       await _addItem();

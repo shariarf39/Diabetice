@@ -2,6 +2,8 @@ import 'package:diabetes_self_care_new/activitys/pages/avoid_using_tobaco.dart';
 import 'package:diabetes_self_care_new/activitys/pages/blood.dart';
 import 'package:diabetes_self_care_new/activitys/pages/follow.dart';
 import 'package:diabetes_self_care_new/activitys/pages/footcare.dart';
+import 'package:diabetes_self_care_new/activitys/pages/footcare/ring.dart';
+import 'package:diabetes_self_care_new/activitys/pages/info.dart';
 import 'package:flutter/material.dart';
 
 class More extends StatefulWidget {
@@ -167,19 +169,25 @@ class _MoreState extends State<More> {
                         Radius.circular(20)
                     ),
                   ),
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.info_outline
-                        ),
-                        Text("INFO"),
-                        // Text("VISIT"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:
+                      (context)=> INfo()));
+                    },
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.info_outline
+                          ),
+                          Text("INFO"),
+                          // Text("VISIT"),
+                        ],
 
+                      ),
                     ),
                   ),
                 ),
@@ -192,19 +200,25 @@ class _MoreState extends State<More> {
                         Radius.circular(20)
                     ),
                   ),
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons.developer_mode
-                        ),
-                        Text("DEVELOPER"),
-                        //     Text("VISIT"),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Developer()));
+                    },
 
+                    child: Card(
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                              Icons.developer_mode
+                          ),
+                          Text("DEVELOPER"),
+                          //     Text("VISIT"),
+                        ],
+
+                      ),
                     ),
                   ),
                 ),
