@@ -4,7 +4,7 @@ project(diabetes_self_care_new LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "diabetes_self_care_new")
+set(BINARY_NAME "Diabetes Self-Care")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

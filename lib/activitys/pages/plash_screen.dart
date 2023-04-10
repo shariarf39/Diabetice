@@ -38,6 +38,9 @@ class _PlashScreenState extends State<PlashScreen> {
                 ),
               ),
               Align(
+                child: CircularProgressIndicator(),
+              ),
+              Align(
                 alignment: Alignment.bottomCenter,
                 child: Text("Developed By"),
               ),
