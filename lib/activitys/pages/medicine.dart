@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
       _titleController.text = existingJournal['title'];
       _descriptionController.text = existingJournal['description'];
     }
+   // showModalBottomSheet(context: context, builder: builder)
 
     showModalBottomSheet(
         context: context,
@@ -111,7 +112,8 @@ class _HomePageState extends State<HomePage> {
                   Navigator.of(context).pop();
                 },
                 child: Text(id == null ? 'Create New' : 'Update'),
-              )
+              ),
+              SizedBox(height: 220,)
             ],
           ),
         ));
@@ -154,8 +156,9 @@ class _HomePageState extends State<HomePage> {
           : ListView.builder(
         itemCount: _journals.length,
         itemBuilder: (context, index) => Card(
-          color: Colors.orange[200],
-          margin: const EdgeInsets.all(15),
+          elevation: 5,
+         // color: Colors.orange[200],
+         margin: const EdgeInsets.all(15),
           child: ListTile(
               title: Text(_journals[index]['title']),
               subtitle: Text(_journals[index]['description']),

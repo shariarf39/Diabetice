@@ -240,36 +240,45 @@ class _Medi_selectState extends State<Ac_select> {
             child: Column(
               children: [
                 const SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController,
-                  decoration: const InputDecoration(
-                      labelText: "Activity Name",
-                      hintText: "Activity Name",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)
-                          )
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(
+                        labelText: "Activity Name",
+                        hintText: "Activity Name",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
+                            )
 
-                      )
+                        )
+                    ),
                   ),
                 ),
-                SizedBox(height: 10,),
-                TextFormField(
+                SizedBox(height: 7,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
 
-                  decoration: const InputDecoration(
-                      labelText: "Duration (min)",
-                      hintText: "Duration (min)",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20)
+                    decoration: const InputDecoration(
+                        labelText: "Duration (min)",
+                        hintText: "Duration (min)",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
 
-                          )
+                            )
 
-                      )
+                        )
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -432,7 +441,7 @@ class _Medi_selectState extends State<Ac_select> {
 
                       decoration: BoxDecoration(
                           color: Colors.green,
-                          border: Border.all(),
+                      //    border: Border.all(),
                           borderRadius:  BorderRadius.circular(20)
                       ),
 
@@ -498,7 +507,7 @@ class _Medi_selectState extends State<Ac_select> {
 
                   decoration: BoxDecoration(
                       color: Colors.green,
-                      border: Border.all(),
+                   //   border: Border.all(),
                       borderRadius:  BorderRadius.circular(20)
                   ),
 

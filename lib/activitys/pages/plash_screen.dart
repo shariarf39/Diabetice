@@ -25,16 +25,17 @@ class _PlashScreenState extends State<PlashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
 
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(30.0),
         child: Container(
 
           child: Column(
             children: <Widget>[
               Expanded(
                 child: Center(
-                  child: Text("DIAMETES"),
+                  child: Image.asset("assets/care.png"),
                 ),
               ),
               Align(

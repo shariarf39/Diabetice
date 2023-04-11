@@ -215,53 +215,62 @@ class _Medi_selectState extends State<F_select> {
             child: Column(
               children: [
                 const SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController,
-                  decoration: const InputDecoration(
-                      labelText: "Doctor Name",
-                      hintText: "Doctor Name",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20)
-                          )
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(
+                        labelText: "Doctor Name",
+                        hintText: "Doctor Name",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
+                            )
 
-                      )
+                        )
+                    ),
                   ),
-                ),SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController1,
-                  decoration: const InputDecoration(
-                      labelText: "Hospital Name",
-                      hintText: "Hospital Name",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20)
-                          )
+                ),//SizedBox(height: 5,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _titleController1,
+                    decoration: const InputDecoration(
+                        labelText: "Hospital Name",
+                        hintText: "Hospital Name",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
+                            )
 
-                      )
+                        )
+                    ),
                   ),
                 ),
-                SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController2,
-                  decoration: const InputDecoration(
-                      labelText: "Location",
-                      hintText: "Location",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20)
-                          )
+              //  SizedBox(height: 5,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _titleController2,
+                    decoration: const InputDecoration(
+                        labelText: "Location",
+                        hintText: "Location",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
+                            )
 
-                      )
+                        )
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -411,10 +420,12 @@ class _Medi_selectState extends State<F_select> {
 
                   decoration: BoxDecoration(
                       color: Colors.green,
-                      border: Border.all(),
+                     // border: Border.all(),
                       borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20)
                       )
                   ),
 

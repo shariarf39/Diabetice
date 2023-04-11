@@ -31,7 +31,7 @@ class Developer extends StatelessWidget {
               ),
               SizedBox(height: 5,),
               Container(
-                child: Text('Md Fahim Shariar\nComputer Science And Engineering\n'
+                child: Text('Md Fahim Shariar\nComputer Science And Engineering(CSE)\n'
                     'Northern University Bangladesh'),
               )
             ],

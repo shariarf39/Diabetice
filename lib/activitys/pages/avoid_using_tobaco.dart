@@ -112,7 +112,8 @@ class _HomePageState extends State<Tob> {
                   Navigator.of(context).pop();
                 },
                 child: Text(id == null ? 'Create New' : 'Update'),
-              )
+              ),
+              SizedBox(height: 220,)
             ],
           ),
         ));
@@ -155,7 +156,8 @@ class _HomePageState extends State<Tob> {
           : ListView.builder(
         itemCount: _journals.length,
         itemBuilder: (context, index) => Card(
-          color: Colors.orange[200],
+          elevation: 5,
+      //    color: Colors.orange[200],
           margin: const EdgeInsets.all(15),
           child: ListTile(
               title: Text(_journals[index]['title']),

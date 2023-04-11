@@ -89,6 +89,8 @@ class _Medi_selectState extends State<Medi_select> {
   final List<bool> _selectedWeather = <bool>[false, false, true];
   bool vertical = false;
 
+  final _formkey = GlobalKey<FormState>();
+
   String dropdownValue = 'One';
 
   List <String> spinnerItems = [
@@ -242,18 +244,26 @@ String select4 = "Select Time (Click here)";
             child: Column(
               children: [
                 const SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController,
-                  decoration: const InputDecoration(
-                   labelText: "Drug Name",
-                    hintText: "Drug Name",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)
-                      )
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Form(
+                    key: _formkey,
+                    child: TextFormField(
+                      controller: _titleController,
+                      decoration: const InputDecoration(
+                       labelText: "Drug Name",
+                        hintText: "Drug Name",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20)
+                          )
 
-                    )
+                        )
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -614,7 +624,7 @@ String select4 = "Select Time (Click here)";
                       icon: const Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: const TextStyle(color: Colors.red, fontSize: 18),
+                      style: const TextStyle(color: Colors.green, fontSize: 18),
                       underline: Container(
                         height: 2,
                         color: Colors.deepPurpleAccent,
@@ -674,7 +684,7 @@ String select4 = "Select Time (Click here)";
 
                   decoration: BoxDecoration(
                     color: Colors.green,
-                    border: Border.all(),
+                  //  border: Border.all(),
                     borderRadius:  BorderRadius.circular(20)
                   ),
 
@@ -683,49 +693,35 @@ String select4 = "Select Time (Click here)";
                       TextButton(
                         onPressed: () async {
 
+                if(_formkey.currentState!.validate()) {
+                  FlutterAlarmClock.createAlarm(
+                    _timeOfDay.hour, _timeOfDay.minute,
+                    title: _titleController.text,);
 
 
+                  //   if(_selectedFruits[1]==true){
 
 
-                            FlutterAlarmClock.createAlarm(
-                              _timeOfDay.hour, _timeOfDay.minute,
-                              title: _titleController.text,);
+                  //   }
 
 
+                  // Save new journal
+                  //  if (id == null) {
+                  await _addItem();
+                  //  }
+
+                  //    if (id != null) {
+                  //  await _updateItem(id);
+                  //   }
+
+                  // Clear the text fields
+                  _titleController.text = '';
+                  _descriptionController.text = '';
 
 
-
-
-
-                      //   if(_selectedFruits[1]==true){
-
-
-
-                      //   }
-
-
-                         // Save new journal
-                        //  if (id == null) {
-                            await _addItem();
-                        //  }
-
-                      //    if (id != null) {
-                          //  await _updateItem(id);
-                       //   }
-
-                          // Clear the text fields
-                          _titleController.text = '';
-                          _descriptionController.text = '';
-
-
-
-
-                          // Close the bottom sheet
-                          Navigator.of(context).pop();
-
-
-
-
+                  // Close the bottom sheet
+                  Navigator.of(context).pop();
+                }
 
                         },
                         child: const Text("Save",style: TextStyle(color: Colors.white),),

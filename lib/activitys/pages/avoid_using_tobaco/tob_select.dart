@@ -242,18 +242,23 @@ class _Medi_selectState extends State<Tob_select> {
             child: Column(
               children: [
                 const SizedBox(height: 5,),
-                TextFormField(
-                  controller: _titleController,
-                  decoration: const InputDecoration(
-                      labelText: "Tobacco Name",
-                      hintText: "Tobacco Name",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)
-                          )
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(
+                        labelText: "Tobacco Name",
+                        hintText: "Tobacco Name",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)
+                            )
 
-                      )
+                        )
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -614,7 +619,7 @@ class _Medi_selectState extends State<Tob_select> {
                       icon: const Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: const TextStyle(color: Colors.red, fontSize: 18),
+                      style: const TextStyle(color: Colors.green, fontSize: 18),
                       underline: Container(
                         height: 2,
                         color: Colors.deepPurpleAccent,
@@ -674,7 +679,7 @@ class _Medi_selectState extends State<Tob_select> {
 
                   decoration: BoxDecoration(
                       color: Colors.green,
-                      border: Border.all(),
+                   //   border: Border.all(),
                       borderRadius:  BorderRadius.circular(20)
                   ),
 
