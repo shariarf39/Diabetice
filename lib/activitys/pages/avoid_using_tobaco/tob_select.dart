@@ -2,6 +2,7 @@ import 'dart:math';
 
 
 import 'package:diabetes_self_care_new/activitys/figment_ac.dart';
+import 'package:diabetes_self_care_new/activitys/pages/avoid_using_tobaco.dart';
 import 'package:diabetes_self_care_new/activitys/pages/avoid_using_tobaco/database_tob.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -230,7 +231,7 @@ class _Medi_selectState extends State<Tob_select> {
 
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  BashboardOfFragment()),
+                  MaterialPageRoute(builder: (context) =>  Tob()),
                 );
               },
             )

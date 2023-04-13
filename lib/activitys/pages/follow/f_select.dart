@@ -2,6 +2,7 @@ import 'dart:math';
 
 
 import 'package:diabetes_self_care_new/activitys/figment_ac.dart';
+import 'package:diabetes_self_care_new/activitys/pages/follow.dart';
 import 'package:diabetes_self_care_new/activitys/pages/follow/database_f.dart';
 import 'package:diabetes_self_care_new/activitys/pages/medicine.dart';
 import 'package:flutter/cupertino.dart';
@@ -204,7 +205,7 @@ class _Medi_selectState extends State<F_select> {
 
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  BashboardOfFragment()),
+                  MaterialPageRoute(builder: (context) =>  Follow()),
                 );
               },
             )
