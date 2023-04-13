@@ -1,4 +1,4 @@
-import 'dart:math';
+
 
 
 import 'package:diabetes_self_care_new/activitys/figment_ac.dart';
@@ -123,6 +123,8 @@ class _Medi_selectState extends State<Medi_select> {
   bool selectshow4 = false;
   bool hide = false;
   bool set_label= false;
+
+
 
   bool b= false;
   bool b1= false;
@@ -582,11 +584,11 @@ String select4 = "Select Time (Click here)";
                     child: Container(
                       alignment: Alignment.topRight,
                       height: 50,
-                      width: 120,
+                      width: 150,
 
                       decoration: BoxDecoration(
                           color: Colors.green,
-                          border: Border.all(),
+                         // border: Border.all(),
                           borderRadius:  BorderRadius.circular(20)
                       ),
 
@@ -597,7 +599,7 @@ String select4 = "Select Time (Click here)";
                             FlutterAlarmClock.showAlarms();
 
                           },
-                          child: Text('Label Set',style: TextStyle(color: Colors.white),),
+                          child: Text('Select Schedule',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                     ),
@@ -720,7 +722,8 @@ String select4 = "Select Time (Click here)";
 
 
                   // Close the bottom sheet
-                  Navigator.of(context).pop();
+                  set_label= true;
+                //  Navigator.of(context).pop();
                 }
 
                         },

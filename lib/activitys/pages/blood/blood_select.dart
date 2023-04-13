@@ -107,6 +107,8 @@ class _Medi_selectState extends State<Blood_select> {
   bool selectshow = true;
   bool hide = false;
 
+  bool set_label = false;
+
   String select = "Select Time (Click here)";
 
 
@@ -303,6 +305,39 @@ class _Medi_selectState extends State<Blood_select> {
                         },
                         child: Text( _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()))),
 
+
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    //  right: 40
+                  ),
+                  child: Visibility(
+                    visible: set_label,
+                    child: Container(
+                      alignment: Alignment.topRight,
+                      height: 50,
+                      width: 150,
+
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          // border: Border.all(),
+                          borderRadius:  BorderRadius.circular(20)
+                      ),
+
+                      child: Center(
+                        child: TextButton(
+                          onPressed: (){
+
+                            FlutterAlarmClock.showAlarms();
+
+                          },
+                          child: Text('Select Schedule',style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
                 const SizedBox(height: 20,),
 
 
@@ -372,7 +407,8 @@ class _Medi_selectState extends State<Blood_select> {
 
 
                       // Close the bottom sheet
-                      Navigator.of(context).pop();
+                      set_label = true;
+                  //    Navigator.of(context).pop();
 
 
 

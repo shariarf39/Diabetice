@@ -107,6 +107,7 @@ class _Medi_selectState extends State<Foot_select> {
   //
   bool selectshow = true;
   bool hide = false;
+  bool set_label = false;
 
   String select = "Select Time (Click here)";
 
@@ -121,6 +122,7 @@ class _Medi_selectState extends State<Foot_select> {
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+
 
   // This function will be triggered when the floating button is pressed
   // It will also be triggered when you want to update an item
@@ -308,6 +310,39 @@ class _Medi_selectState extends State<Foot_select> {
                         child: Text( _timeOfDay.hour.toString() + ":" + _timeOfDay.minute.toString()))),
 
 
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    //  right: 40
+                  ),
+                  child: Visibility(
+                    visible: set_label,
+                    child: Container(
+                      alignment: Alignment.topRight,
+                      height: 50,
+                      width: 150,
+
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          // border: Border.all(),
+                          borderRadius:  BorderRadius.circular(20)
+                      ),
+
+                      child: Center(
+                        child: TextButton(
+                          onPressed: (){
+
+                            FlutterAlarmClock.showAlarms();
+
+                          },
+                          child: Text('Select Schedule',style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
 
 
                 const SizedBox(height: 20,),
@@ -372,11 +407,13 @@ class _Medi_selectState extends State<Foot_select> {
                       _titleController.text = '';
                       _descriptionController.text = '';
 
+                      set_label = true;
+
 
 
 
                       // Close the bottom sheet
-                      Navigator.of(context).pop();
+                   //   Navigator.of(context).pop();
 
 
 

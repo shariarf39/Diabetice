@@ -427,6 +427,7 @@ class _Medi_selectState extends State<Ac_select> {
                 ),
 
 
+
                 SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.only(
@@ -437,11 +438,11 @@ class _Medi_selectState extends State<Ac_select> {
                     child: Container(
                       alignment: Alignment.topRight,
                       height: 50,
-                      width: 120,
+                      width: 150,
 
                       decoration: BoxDecoration(
                           color: Colors.green,
-                      //    border: Border.all(),
+                          // border: Border.all(),
                           borderRadius:  BorderRadius.circular(20)
                       ),
 
@@ -452,13 +453,12 @@ class _Medi_selectState extends State<Ac_select> {
                             FlutterAlarmClock.showAlarms();
 
                           },
-                          child: Text('Label Set',style: TextStyle(color: Colors.white),),
+                          child: Text('Select Schedule',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                     ),
                   ),
                 ),
-
 /*
                 Visibility(
                     visible: hide,
@@ -554,7 +554,8 @@ class _Medi_selectState extends State<Ac_select> {
 
 
                           // Close the bottom sheet
-                          Navigator.of(context).pop();
+                          set_label = true;
+                       //   Navigator.of(context).pop();
 
 
 
